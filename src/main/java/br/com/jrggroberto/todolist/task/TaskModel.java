@@ -31,4 +31,68 @@ public class TaskModel {
 
   private UUID idUser;
 
+  public UUID getId() {
+    return this.id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public LocalDateTime getStartAt() {
+    return this.startAt;
+  }
+
+  public void setStartAt(LocalDateTime startAt) {
+    this.startAt = startAt;
+  }
+
+  public LocalDateTime getEndAt() {
+    return this.endAt;
+  }
+
+  public void setEndAt(LocalDateTime endAt) {
+    this.endAt = endAt;
+  }
+
+  public String getPriority() {
+    return this.priority;
+  }
+
+  public void setPriority(String priority) {
+    this.priority = priority;
+  }
+
+  public LocalDateTime getCrDateTime() {
+    return this.crDateTime;
+  }
+
+  public void setCrDateTime(LocalDateTime crDateTime) {
+    this.crDateTime = crDateTime;
+  }
+
+  public UUID getIdUser() {
+    return this.idUser;
+  }
+
+  public void setIdUser(UUID idUser) {
+    this.idUser = idUser;
+  }
+
 }
