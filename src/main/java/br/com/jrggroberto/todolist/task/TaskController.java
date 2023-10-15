@@ -53,16 +53,18 @@ public class TaskController {
 
   // http://localhost:8080/tasks/
   @PutMapping("/{id}")
-  public TaskModel update(@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request) {
+  public ResponseEntity update(@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request) {
+    var task = this.taskRepository.findById(id).orElse(null);
+
     var idUser = request.getAttribute("idUser");
 
-    var task = this.taskRepository.findById(id).orElse(null);
+    if (!task.getIdUser().equals(idUser)) {
+      return ResponseEntity.status(400).body("Não é possível alterar uma task de outro usuário");
+    }
+
     Utils.copyNonNullProperties(taskModel, task);
-
-//    taskModel.setIdUser((UUID) idUser);
-  //  taskModel.setId(id);
-    return this.taskRepository.save(task);
-
+    var tastUpdated = this.taskRepository.save(task);
+    return ResponseEntity.ok().body(tastUpdated);
   }
 
 }
