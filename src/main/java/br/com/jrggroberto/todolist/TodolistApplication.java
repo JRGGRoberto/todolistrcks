@@ -9,5 +9,6 @@ public class TodolistApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TodolistApplication.class, args);
 	}
-
+	// no terminal:
+	// mvn spring-boot:run
 }

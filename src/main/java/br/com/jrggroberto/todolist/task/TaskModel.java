@@ -9,9 +9,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.Data;
 
-@Data
+//import lombok.Data;
 @Entity(name = "tb_tasks")
 public class TaskModel {
 
@@ -47,7 +46,10 @@ public class TaskModel {
     this.description = description;
   }
 
-  public String getTitle() {
+  public String getTitle() throws Exception {
+    if (title.length() > 50) {
+      throw new Exception("Titulo limite 50 caracteres", null);
+    }
     return this.title;
   }
 

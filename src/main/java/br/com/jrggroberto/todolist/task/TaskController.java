@@ -57,7 +57,7 @@ public class TaskController {
     var task = this.taskRepository.findById(id).orElse(null);
 
     if (task == null) {
-      return ResponseEntity.status(400).body("Tarefa não encontradaß");
+      return ResponseEntity.status(400).body("Tarefa não encontrada");
     }
 
     var idUser = request.getAttribute("idUser");
